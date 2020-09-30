@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@welcome');
+
+Route::get('/top', 'WelcomeController@top');
+
+Route::get('/posts/index', 'PostController@index');
 
 Auth::routes();
 
