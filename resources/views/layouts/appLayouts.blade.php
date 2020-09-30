@@ -20,6 +20,15 @@
       <ul class="navbar-nav">
         @auth
           <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
+          <a class="nav-link" href="{{ route('logout') }}"
+             onclick="event.preventDefault();
+                           document.getElementById('logout-form').submit();">
+              {{ __('ログアウト') }}
+          </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+          </form>
         @else
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('login') }}">ログイン</a>
