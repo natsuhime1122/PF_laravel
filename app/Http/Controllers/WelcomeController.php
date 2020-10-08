@@ -10,7 +10,4 @@ class WelcomeController extends Controller
     return view('welcome');
   }
 
-  public function top() {
-    return view('top');
-  }
 }

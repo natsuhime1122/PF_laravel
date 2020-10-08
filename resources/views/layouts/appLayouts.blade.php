@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <title>LatavelTweet</title>
+  <title>LaravelTweet</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ asset('css/posts.css') }}">
@@ -20,6 +20,7 @@
       <ul class="navbar-nav">
         @auth
           <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
+          <a class="nav-link" href="{{ url('/posts/new') }}">新規投稿</a>
           <a class="nav-link" href="{{ route('logout') }}"
              onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">

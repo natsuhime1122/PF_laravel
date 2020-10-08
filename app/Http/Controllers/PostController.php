@@ -16,6 +16,10 @@ class PostController extends Controller
     return view('posts.index');
   }
 
+  public function new() {
+    return view('posts.new');
+  }
+
   public function create()
   {
 
