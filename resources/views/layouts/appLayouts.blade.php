@@ -19,8 +19,9 @@
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
         @auth
+          <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
           <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
-          <a class="nav-link" href="{{ url('/posts/new') }}">新規投稿</a>
+          <a class="nav-link" href="{{ url('/posts/create') }}">新規投稿</a>
           <a class="nav-link" href="{{ route('logout') }}"
              onclick="event.preventDefault();
                            document.getElementById('logout-form').submit();">

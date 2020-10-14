@@ -2,10 +2,12 @@
 
 @section('main')
 
-  <div class="posts-index-item">
+  @foreach ($posts as $post)
+    <div class="posts-index-item">
       <h1>User</h1>
-      <p class="lead">contents</p>
-  </div>
+      <p class="lead">{{ $post->content }}</p>
+    </div>
+  @endforeach
 
 
 
