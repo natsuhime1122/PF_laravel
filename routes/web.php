@@ -19,7 +19,11 @@ Route::get('/posts/index', 'PostController@index');
 
 Route::get('/posts/create', 'PostController@create');
 
-Route::post('/posts', 'PostController@store');
+Route::post('/posts/store', 'PostController@store');
+
+Route::get('/posts/edit', 'PostController@edit');
+
+Route::post('/posts/update', 'PostController@update');
 
 Route::get('/users/index', 'UserController@index');
 

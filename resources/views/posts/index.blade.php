@@ -4,7 +4,7 @@
 
   @foreach ($posts as $post)
     <div class="posts-index-item">
-      <h1>User</h1>
+      <h1>{{ $post->user->name }}</h1>
       <p class="lead">{{ $post->content }}</p>
     </div>
   @endforeach

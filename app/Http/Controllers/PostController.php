@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Post;
+
+use App\User;
+
 class PostController extends Controller
 {
   public function __construct()
@@ -14,7 +18,9 @@ class PostController extends Controller
   }
 
 
-  public function index(Request $request) {
+
+  public function index() {
+    $posts = Post::all();
     return view('posts.index', [ 'posts' => $posts ]);
   }
 
@@ -26,19 +32,22 @@ class PostController extends Controller
   {
     $user = Auth::user();
     $post = new Post();
+    $post->user_id = Auth::id();
     $post->content = $request->content;
-    $post.save();
+    $post->save();
     return redirect('/posts/index');
-  }
-
-  public function update()
-  {
 
   }
 
   public function edit()
   {
+    $post = Post::all();
+    return view('posts.edit');
+  }
 
+  public function update(Request $request)
+  {
+    return redirect('/posts/index');
   }
 
   public function destroy()
