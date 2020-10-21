@@ -24,6 +24,11 @@ class PostController extends Controller
     return view('posts.index', [ 'posts' => $posts ]);
   }
 
+  public function show(Request $request) {
+    $post = Post::find($request->id);
+    return view('posts.show', [ 'post' => $post ]);
+  }
+
   public function create() {
     return view('posts.create');
   }
@@ -39,9 +44,9 @@ class PostController extends Controller
 
   }
 
-  public function edit()
+  public function edit(Request $request)
   {
-    $post = Post::all();
+    $post = Post::find($request->id);
     return view('posts.edit');
   }
 
