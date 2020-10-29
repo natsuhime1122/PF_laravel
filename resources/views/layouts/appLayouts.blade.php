@@ -16,12 +16,15 @@
   </a>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="/">LaravelTweet</a>
+    @auth
+      <a class="navbar-brand" href="/posts/index">LaravelTweet</a>
+    @else
+      <a class="navbar-brand" href="/">LaravelTweet</a>
+    @endauth
     <div class="collapse navbar-collapse justify-content-end">
       <ul class="navbar-nav">
         @auth
           <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
-          <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
           <a class="nav-link" href="{{ url('/posts/create') }}">新規投稿</a>
           <a class="nav-link" href="{{ route('logout') }}"
              onclick="event.preventDefault();

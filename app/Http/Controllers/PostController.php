@@ -20,8 +20,9 @@ class PostController extends Controller
 
 
   public function index() {
-    $posts = Post::all();
-    return view('posts.index', [ 'posts' => $posts ]);
+    $posts = Post::latest()->get();
+    $user_id = Auth::id();
+    return view('posts.index', compact('posts','user_id'));
   }
 
   public function show(Request $request) {
@@ -47,16 +48,21 @@ class PostController extends Controller
   public function edit(Request $request)
   {
     $post = Post::find($request->id);
-    return view('posts.edit');
+    return view('posts.edit', ['post' => $post ]);
   }
 
-  public function update(Request $request)
+  public function update(Request $request, Post $post)
   {
+    $post = Post::find($request->id);
+    $post->content = $request->content;
+    $post->save();
     return redirect('/posts/index');
   }
 
-  public function destroy()
+  public function destroy(Request $request, Post $post)
   {
-
+    $post = Post::find($request->id);
+    $post->delete();
+    return redirect('/posts/index');
   }
 }
