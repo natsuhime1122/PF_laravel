@@ -21,7 +21,10 @@
     @else
       <a class="navbar-brand" href="/">LaravelTweet</a>
     @endauth
-    <div class="collapse navbar-collapse justify-content-end">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
       <ul class="navbar-nav">
         @auth
           <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>

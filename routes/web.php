@@ -17,13 +17,13 @@ Route::get('/', 'HomeController@top');
 
 Route::get('/posts/index', 'PostController@index');
 
-Route::get('/posts/{id}', 'PostController@show');
-
 Route::get('/posts/create', 'PostController@create');
 
 Route::post('/posts/store', 'PostController@store');
 
 Route::get('/posts/{id}/edit', 'PostController@edit');
+
+Route::get('/posts/{id}', 'PostController@show');
 
 Route::patch('/posts/{id}', 'PostController@update');
 
