@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Requests\StorePost;
+
 use App\Post;
 
 use App\User;
@@ -27,7 +29,8 @@ class PostController extends Controller
 
   public function show(Request $request) {
     $post = Post::find($request->id);
-    return view('posts.show', [ 'post' => $post ]);
+    $user_id = Auth::id();
+    return view('posts.show', compact('post','user_id'));
   }
 
   public function create() {
@@ -37,6 +40,10 @@ class PostController extends Controller
   public function store(Request $request)
   {
     $user = Auth::user();
+    $rules = [
+        'content' => ['required', 'string', 'max:140']
+    ];
+    $this->validate($request, $rules);
     $post = new Post();
     $post->user_id = Auth::id();
     $post->content = $request->content;
@@ -54,6 +61,10 @@ class PostController extends Controller
   public function update(Request $request, Post $post)
   {
     $post = Post::find($request->id);
+    $rules = [
+        'content' => ['required', 'string', 'max:140']
+    ];
+    $this->validate($request, $rules);
     $post->content = $request->content;
     $post->save();
     return redirect('/posts/index');
