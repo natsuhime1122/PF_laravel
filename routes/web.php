@@ -13,10 +13,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@top');
+
+Route::get('/posts/index', 'PostController@index');
+
+Route::get('/posts/create', 'PostController@create');
+
+Route::post('/posts/store', 'PostController@store');
+
+Route::get('/posts/{id}/edit', 'PostController@edit');
+
+Route::get('/posts/{id}', 'PostController@show');
+
+Route::patch('/posts/{id}', 'PostController@update');
+
+Route::delete('/posts/{id}', 'PostController@destroy');
+
+// Route::get('/posts/{id}', 'PostController@show');
+
+Route::get('/users/index', 'UserController@index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
