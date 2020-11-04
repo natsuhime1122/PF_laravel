@@ -6,7 +6,7 @@
     <div class="posts-index-item">
       {{-- 投稿内容 --}}
       <h1>{{ $post->user->name }}</h1>
-      <p class="lead">{{ $post->content }}</p>
+      <p class="lead">{!! nl2br(e($post->content)) !!}</p>
       <a href="/posts/{{$post->id}}">詳細を表示</a>
     </div>
   @endforeach
