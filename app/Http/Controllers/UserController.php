@@ -18,7 +18,19 @@ class UserController extends Controller
     return view('users.index', [ 'user' => $user ]);
   }
 
-  public function edit() {
-
-  }
+  // public function edit(Request $request) {
+  //   $user = Auth::find($request->id);
+  //   return view('users.edit', ['user' => $user ]);
+  // }
+  //
+  // public function update(Request $request, User $user) {
+  //   $post = Post::find($request->id);
+  //   $rules = [
+  //       'content' => ['required', 'string', 'max:140']
+  //   ];
+  //   $this->validate($request, $rules);
+  //   $post->content = $request->content;
+  //   $post->save();
+  //   return redirect('/users/index');
+  // }
 }

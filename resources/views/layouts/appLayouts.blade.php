@@ -27,14 +27,19 @@
     <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
       <ul class="navbar-nav">
         @auth
-          <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
-          <a class="nav-link" href="{{ url('/posts/create') }}">新規投稿</a>
-          <a class="nav-link" href="{{ route('logout') }}"
-             onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();">
-              {{ __('ログアウト') }}
-          </a>
-
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url('/posts/create') }}">新規投稿</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('ログアウト') }}
+            </a>
+          </li>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
           </form>
