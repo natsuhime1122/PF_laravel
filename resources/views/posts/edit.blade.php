@@ -10,7 +10,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
       @enderror
       <textarea name="content" id="textarea1" class="form-control @error('content') is-invalid @enderror">{{ $post->content }}</textarea>
-      <input type="submit" value="更新">
+      <input type="submit" class="btn btn-primary" value="更新">
     </div>
   </form>
 
