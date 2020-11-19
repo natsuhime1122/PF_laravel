@@ -55,6 +55,8 @@
       </a>
     @endif --}}
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    <p>メールアドレス:guest@example.com</p>
+    <p>パスワード:Guestuser1</p>
   </form>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
