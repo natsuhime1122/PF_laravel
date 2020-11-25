@@ -55,6 +55,7 @@
       </a>
     @endif --}}
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    <p class="mt-3">ゲスト用アカウント</p>
     <p>メールアドレス:guest@example.com</p>
     <p>パスワード:Guestuser1</p>
   </form>
