@@ -55,6 +55,7 @@ class PostController extends Controller
   public function edit(Request $request)
   {
     $post = Post::find($request->id);
+    $this->authorize('view', $post);
     return view('posts.edit', ['post' => $post ]);
   }
 
