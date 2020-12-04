@@ -49,7 +49,6 @@ class PostController extends Controller
     $post->content = $request->content;
     $post->save();
     return redirect('/posts/index');
-
   }
 
   public function edit(Request $request)
