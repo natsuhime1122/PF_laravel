@@ -54,10 +54,10 @@
         {{ __('パスワードをお忘れですか？') }}
       </a>
     @endif --}}
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    <p class="mt-3">ゲスト用アカウント</p>
-    <p>メールアドレス:guest@example.com</p>
-    <p>パスワード:Guestuser1</p>
+    {{-- <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p> --}}
+    <p class="mt-3 text-muted">ゲスト用アカウント</p>
+    <p class="mt-3 text-muted">メールアドレス:guest@example.com</p>
+    <p class="mt-3 text-muted">パスワード:Guestuser1</p>
   </form>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
