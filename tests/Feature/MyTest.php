@@ -38,4 +38,12 @@ class MyTest extends TestCase
       $response->assertStatus(200);
       //OK (5 tests, 5 assertions)
     }
+
+    public function testExample4()
+    {
+      $user = factory(User::class)->create();
+      $response = $this->actingAs($user)
+      ->get('/users/index');
+      $response->assertStatus(200);
+    }
 }
