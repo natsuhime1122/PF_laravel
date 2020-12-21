@@ -27,9 +27,7 @@ Route::get('/posts/{id}', 'PostController@show');
 
 Route::patch('/posts/{id}', 'PostController@update');
 
-Route::delete('/posts/{id}', 'PostController@destroy');
-
-// Route::get('/posts/{id}', 'PostController@show');
+Route::post('/posts/{id}', 'PostController@destroy')->name('delete');
 
 Route::get('/users/index', 'UserController@index');
 
