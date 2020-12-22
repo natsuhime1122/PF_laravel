@@ -1,7 +1,9 @@
 window.addEventListener('DOMContentLoaded', function() {
-  $(document).on('click', '#deleteTarget', function(event) {
+  $('.posts-index-item').on('click', '#deleteForm', function(event) {
     event.preventDefault();
-    var id = $(this).attr('value')
+    var delF = $(this);
+    var postIndexItem = delF.parent().parent();
+    var id = $(this).attr('value');
 
     $.ajaxSetup({
       headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
@@ -18,8 +20,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
     .done(function(data) {
       console.log("Ajax通信成功");
-      $(this).parents('div').remove();
-      alert('削除成功')
+      console.log(data);
+      postIndexItem.remove();
     })
 
     .fail(function() {

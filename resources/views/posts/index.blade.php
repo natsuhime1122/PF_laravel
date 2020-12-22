@@ -16,9 +16,9 @@
             <button type="submit" class="btn btn-primary">編集</button>
           </form>
           {{-- 削除ボタン --}}
-          <form method="post" action="{{ route('delete', $post->id) }}">
+          <form method="post" action="{{ route('delete', $post->id) }}" id="deleteForm" value="{{  $post->id  }}">
             @csrf
-            <button type="button" id="deleteTarget" class="btn btn-danger" value="{{  $post->id  }}">削除</button>
+            <button type="button" class="btn btn-danger">削除</button>
           </form>
         @endif
       </div>

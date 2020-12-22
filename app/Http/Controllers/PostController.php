@@ -78,9 +78,5 @@ class PostController extends Controller
       $post->delete();
       return response()->json(['deleted' => true, 'post' => $post]);
     }
-     // else {
-    //   $user->delete();
-    //   return response()->setContent(true);
-    // }
   }
 }
