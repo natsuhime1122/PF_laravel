@@ -5,8 +5,7 @@
 DB:MySQL
 インフラ:AWS(EC2)
 
-$post = Post::findOrFail($request->id);
-$post->delete();
-を
-$post = Post::findOrFail($request->id)->delete();
-に変更
+詰まったところ(Ajax)
+2つ先の親要素にアクセスするときはparent()を2回挟む
+idの受け渡しはvalueを使う
+console.logしたものはデベロッパーツールで見れる
