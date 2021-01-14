@@ -15,6 +15,7 @@ Laravelの勉強のため製作いたしました。
 URL:
 
 http://18.179.13.96/
+https://github.com/natsuhime1122/PF_laravel
 
 
 ログイン方法:
