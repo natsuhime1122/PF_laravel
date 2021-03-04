@@ -2,11 +2,12 @@
 
 @section('main')
   <div class="posts">
+    {{-- {{ var_dump($posts) }} --}}
   @foreach ($posts as $post)
     <div class="posts-index-item">
       {{-- 投稿内容 --}}
-      <h1>{{ $post->user->name }}</h1>
-      <p class="lead">{!! nl2br(e($post->content)) !!}</p>
+      <h2>{{ $post->user->name }}</h2>
+      <p class="lead">{!! nl2br(e(Str::limit($post->content, 70))) !!}</p>
       <a href="/posts/{{$post->id}}">詳細を表示</a>
       <div class="btn-group float-right">
         @if( $post->user_id == $user_id )
@@ -24,6 +25,7 @@
       </div>
     </div>
   @endforeach
+  {{ $posts->links() }}
   </div>
 
 

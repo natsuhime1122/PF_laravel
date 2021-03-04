@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Requests\StorePost;
-
-use App\Post;
-
-use App\User;
+use Illuminate\Support\Facades\DB;
+use App\Post;//モデル
+use App\User;//モデル
 
 class PostController extends Controller
 {
@@ -22,13 +19,14 @@ class PostController extends Controller
 
 
   public function index() {
-    $posts = Post::latest()->get();
-    $user_id = Auth::id();
+    $posts = Post::latest()->paginate(10);// SELECT * FROM posts ORDER BY DESC LIMIT 10
+    // dump($posts);
+    $user_id = Auth::id();//今ログインしているユーザー
     return view('posts.index', compact('posts','user_id'));
   }
 
-  public function show(Request $request) {
-    $post = Post::findOrFail($request->id);
+  public function show($id) {
+    $post = Post::findOrFail($id);
     $user_id = Auth::id();
     return view('posts.show', compact('post','user_id'));
   }
