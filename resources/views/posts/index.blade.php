@@ -1,7 +1,7 @@
 @extends('layouts.appLayouts')
 
 @section('main')
-  <div class="posts">
+  <div class="container">
     {{-- {{ var_dump($posts) }} --}}
   @foreach ($posts as $post)
     <div class="posts-index-item">
