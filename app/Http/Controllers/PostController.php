@@ -42,7 +42,7 @@ class PostController extends Controller
   {
     $user = Auth::user();
     $rules = [
-        'content' => ['required', 'string', 'max:140']
+        'content' => ['required', 'string', 'max:512']
     ];
     $this->validate($request, $rules);
     $post = new Post();
@@ -63,7 +63,7 @@ class PostController extends Controller
   {
     $post = Post::findOrFail($request->id);
     $rules = [
-        'content' => ['required', 'string', 'max:140']
+        'content' => ['required', 'string', 'max:512']
     ];
     $this->validate($request, $rules);
     $post->content = $request->content;
