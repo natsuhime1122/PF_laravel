@@ -71,6 +71,11 @@ class RegisterController extends Controller
         ]);
     }
 
+    public function showRegistrationForm()
+    {
+        return view('users.register');
+    }
+
     public function redirectPath()
     {
       return 'posts/index';
