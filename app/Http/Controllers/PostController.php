@@ -29,7 +29,9 @@ class PostController extends Controller
   public function show($id) {
     $post = Post::findOrFail($id);
     $user_id = Auth::id();
-    $comments = Comment::where('post_id', $id)->paginate(10);
+    $comments = Comment::where('post_id', $id)
+                          ->orderby('updated_at', 'desc')
+                          ->paginate(10);
     $comment_count = Comment::where('post_id', $id)->count();
     return view('posts.show', compact('post','user_id','comments','comment_count'));
   }
