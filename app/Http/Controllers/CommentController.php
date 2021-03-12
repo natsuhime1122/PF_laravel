@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StorePost;
+use App\Post;//モデル
+use App\User;
+use App\Comment;
 
 class CommentController extends Controller
 {
@@ -15,9 +20,10 @@ class CommentController extends Controller
     $this->validate($request, $rules);
     $comment = new Comment();
     $comment->user_id = Auth::id();
+    $comment->post_id = $request->post_id;
     $comment->content = $request->content;
     $comment->save();
-    return redirect('/posts/index');
+    return redirect()->action('PostController@show', ['id' => $request->post_id]);
   }
 
   public function edit(Request $request)
