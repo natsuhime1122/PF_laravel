@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePost;
 use Illuminate\Support\Facades\DB;
 use App\Post;//モデル
-use App\User;//モデル
+use App\User;
+use App\Comment;
 
 class PostController extends Controller
 {
@@ -28,7 +29,11 @@ class PostController extends Controller
   public function show($id) {
     $post = Post::findOrFail($id);
     $user_id = Auth::id();
-    return view('posts.show', compact('post','user_id'));
+    $comments = Comment::where('post_id', $id)
+                          ->orderby('updated_at', 'desc')
+                          ->paginate(10);
+    $comment_count = Comment::where('post_id', $id)->count();
+    return view('posts.show', compact('post','user_id','comments','comment_count'));
   }
 
   public function create() {
@@ -39,7 +44,7 @@ class PostController extends Controller
   {
     $user = Auth::user();
     $rules = [
-        'content' => ['required', 'string', 'max:140']
+        'content' => ['required', 'string', 'max:512']
     ];
     $this->validate($request, $rules);
     $post = new Post();
@@ -60,7 +65,7 @@ class PostController extends Controller
   {
     $post = Post::findOrFail($request->id);
     $rules = [
-        'content' => ['required', 'string', 'max:140']
+        'content' => ['required', 'string', 'max:512']
     ];
     $this->validate($request, $rules);
     $post->content = $request->content;

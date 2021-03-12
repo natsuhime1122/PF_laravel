@@ -1,5 +1,6 @@
-
+<?php
 // posts.showでpost.idが160の時の$postデータ
+
 object(App\Post)#1049 (27)
   {
     ["connection":protected]=> string(5) "mysql"
@@ -17,7 +18,7 @@ object(App\Post)#1049 (27)
                                           ["created_at"]=> string(19) "2021-03-04 17:42:26"
                                           ["updated_at"]=> string(19) "2021-03-04 17:42:26"
                                           ["user_id"]=> int(2)
-                                          ["content"]=> string(134) "Ut voluptas non molestiae quo voluptas. Ut dolorum optio optio et omnis. Sed cumque placeat fugiat consequuntur iure ratione nesciunt."
+                                          ["content"]=> string(134) "Ut voluptas non molestiae quo voluptas. Ut dolorum optio    optio et omnis. Sed cumque placeat fugiat consequuntur iure ratione nesciunt."
                                         }
     ["original":protected]=> array(5) {
                                         ["id"]=> int(160)
