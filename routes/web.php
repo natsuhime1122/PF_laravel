@@ -26,5 +26,8 @@ Route::post('/posts/{id}', 'PostController@destroy')->name('delete');
 Route::get('/users/index', 'UserController@index');
 
 Route::post('/comments/store', 'CommentController@store');
+Route::get('/comments/{id}/edit', 'CommentController@edit');
+Route::patch('/comments/{id}', 'CommentController@update');
+Route::post('/comments/{id}', 'CommentController@destroy')->name('commentDelete');
 
 Auth::routes();
