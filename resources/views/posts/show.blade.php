@@ -7,7 +7,7 @@
       <h2>{{ $post->user->name }}</h2>
       <p class="lead">{!! nl2br(e($post->content)) !!}</p>
     </div>
-    <h1>コメント({{ $comment_count }})</h1>
+    <h1 class="comment_count">コメント({{ $comment_count }})</h1>
     {{-- コメント入力 --}}
     <form action="/comments/store" method="post">
       @csrf
