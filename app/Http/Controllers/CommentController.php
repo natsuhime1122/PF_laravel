@@ -30,7 +30,7 @@ class CommentController extends Controller
   {
     $comment = Comment::findOrFail($request->id);
     $this->authorize('view', $comment);
-    return view('posts.edit', ['comment' => $comment ]);
+    return view('comments.edit', ['comment' => $comment ]);
   }
 
   public function update(Request $request, Comment $comment)
@@ -42,7 +42,7 @@ class CommentController extends Controller
     $this->validate($request, $rules);
     $comment->content = $request->content;
     $comment->save();
-    return redirect('/posts/index');
+    return redirect()->action('PostController@show', ['id' => $request->post_id]);
   }
 
   public function destroy(Request $request, Comment $comment)
@@ -50,7 +50,8 @@ class CommentController extends Controller
     $comment = Comment::findOrFail($request->id);
     if($request->ajax()) {
       $comment->delete();
-      return response()->json(['deleted' => true, 'comment' => $comment]);
+      $comment_count = Comment::where('post_id', $comment->post_id)->count();
+      return response()->json(['deleted' => true, 'comment_count' => $comment_count]);
     }
   }
 }
