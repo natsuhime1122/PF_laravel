@@ -20,8 +20,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
     .done(function(data) {
       console.log("Ajax通信成功");
-      console.log(data);
+      console.log(data.comment_count);
       commentItem.remove();
+      $('.comment_count').html('コメント('+data.comment_count+')');
     })
 
     .fail(function() {
