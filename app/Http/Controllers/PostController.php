@@ -36,10 +36,6 @@ class PostController extends Controller
     return view('posts.show', compact('post','user_id','comments','comment_count'));
   }
 
-  public function create() {
-    return view('posts.create');
-  }
-
   public function store(Request $request)
   {
     $user = Auth::user();
