@@ -29,11 +29,15 @@
     <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
       <ul class="navbar-nav">
         @auth
+          {{-- <form class="d-flex ml-5">
+            <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form> --}}
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
+            <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/posts/create') }}">新規投稿</a>
+            <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('logout') }}"
@@ -45,15 +49,6 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
           </form>
-        @else
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ route('login') }}">ログイン</a>
-          </li>
-          @if (Route::has('register'))
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ route('register') }}">新規登録</a>
-            </li>
-          @endif
         @endauth
       </ul>
     </div>
