@@ -21,7 +21,6 @@ class PostController extends Controller
 
   public function index() {
     $posts = Post::latest()->paginate(10);// SELECT * FROM posts ORDER BY DESC LIMIT 10
-    // dump($posts);
     $user_id = Auth::id();//今ログインしているユーザー
     return view('posts.index', compact('posts','user_id'));
   }

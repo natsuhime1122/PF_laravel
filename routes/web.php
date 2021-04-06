@@ -24,6 +24,8 @@ Route::patch('/posts/{id}', 'PostController@update');
 Route::post('/posts/{id}', 'PostController@destroy')->name('delete');
 
 Route::get('/users/index', 'UserController@index');
+Route::get('/users/edit', 'UserController@edit');
+Route::patch('/users/{id}', 'UserController@update');
 
 Route::post('/comments/store', 'CommentController@store');
 Route::get('/comments/{id}/edit', 'CommentController@edit');
