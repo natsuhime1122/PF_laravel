@@ -134,8 +134,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'user_name' => [
+            'required' => 'ユーザー名を入力してください',
         ],
     ],
 
@@ -154,6 +154,8 @@ return [
       |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'user_name' => 'ユーザー名',
+    ],
 
 ];
