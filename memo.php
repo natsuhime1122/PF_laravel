@@ -1,4 +1,7 @@
 <?php
+// var_dumpのメモ用
+
+
 // posts.showでpost.idが160の時の$postデータ
 
 object(App\Post)#1049 (27)
