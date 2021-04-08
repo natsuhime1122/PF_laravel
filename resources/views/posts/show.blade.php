@@ -4,7 +4,9 @@
 
   <div class="content">
     <div class="post-item">
-      <h2>{{ $post->user->name }}</h2>
+      <a href="/users/{{ $post->user->id }}">
+        <h2>{{ $post->user->name }}</h2>
+      </a>
       <p class="lead">{!! nl2br(e($post->content)) !!}</p>
     </div>
     <h1 class="comment_count">コメント({{ $comment_count }})</h1>
@@ -23,7 +25,9 @@
     {{-- コメント一覧 --}}
     @foreach ($comments as $comment)
       <div class="comment-item">
-        <h2>{!! nl2br(e($comment->user->name)) !!}</h2>
+        <a href="/users/{{ $comment->user_id }}">
+          <h2>{!! nl2br(e($comment->user->name)) !!}</h2>
+        </a>
         <p class="lead">{!! nl2br(e($comment->content)) !!}</p>
         <div class="btn-group float-right">
           @if( $comment->user_id == $user_id )

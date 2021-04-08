@@ -9,6 +9,11 @@ body {
   margin-top: -1px;
 }
 
+.posts-index-item a {
+  text-decoration: none;
+  color: black;
+}
+
 .post-item {
   padding: 20px 30px;
   background-color: white;
@@ -17,10 +22,20 @@ body {
   margin-top: -1px;
 }
 
+.post-item a {
+  text-decoration: none;
+  color: black;
+}
+
 .comment-item {
   padding: 20px 30px;
   background-color: white;
   overflow: hidden;
   border: 1px solid #c1ced7;
   margin-top: -1px;
+}
+
+.comment-item a {
+  text-decoration: none;
+  color: black;
 }
