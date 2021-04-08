@@ -27,8 +27,8 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
-      <ul class="navbar-nav">
-        @if(Auth::check())
+      @if(Auth::check())
+        <ul class="navbar-nav">
           {{-- <form class="d-flex ml-5">
             <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -41,16 +41,16 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
                 {{ __('ログアウト') }}
             </a>
           </li>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
           </form>
-        @endif
-      </ul>
+        </ul>
+      @endif
     </div>
   </nav>
 
