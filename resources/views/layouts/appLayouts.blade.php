@@ -23,35 +23,35 @@
     @else
       <a class="navbar-brand" href="/">LaravelTweet</a>
     @endauth
+    @if(Auth::check())
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
-      @if(Auth::check())
-        <ul class="navbar-nav">
-          {{-- <form class="d-flex ml-5">
-            <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> --}}
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/users/{{ Auth::id() }}">ユーザーページ</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                {{ __('ログアウト') }}
-            </a>
-          </li>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-          </form>
-        </ul>
-      @endif
+      <ul class="navbar-nav">
+        {{-- <form class="d-flex ml-5">
+          <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> --}}
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/users/{{ Auth::id() }}">ユーザーページ</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+              {{ __('ログアウト') }}
+          </a>
+        </li>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
+      </ul>
     </div>
+    @endif
   </nav>
 
   <main role="main" class="container">
