@@ -28,7 +28,7 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="responsiveMenu">
       <ul class="navbar-nav">
-        @auth
+        @if(Auth::check())
           {{-- <form class="d-flex ml-5">
             <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -37,7 +37,7 @@
             <a class="nav-link" href="{{ url('/posts/index') }}">投稿一覧</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="{{ url('/users/index') }}">ユーザーページ</a>
+            <a class="nav-link" href="/users/{{ Auth::id() }}">ユーザーページ</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="{{ route('logout') }}"
@@ -49,7 +49,7 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf
           </form>
-        @endauth
+        @endif
       </ul>
     </div>
   </nav>

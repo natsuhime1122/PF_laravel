@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -13,10 +14,20 @@ class UserController extends Controller
       $this->middleware('auth');
   }
 
-  public function index(Request $request)
+  public function index($id)
+  {
+    $user = User::find($id);
+    $auth_id = Auth::id();
+    $posts = Post::where('user_id', $id)
+                    ->orderby('updated_at', 'desc')
+                    ->paginate(10);
+    return view('users.index', compact('user','auth_id','posts'));
+  }
+
+  public function profile()
   {
     $user = Auth::user();
-    return view('users.index', compact('user'));
+    return view('users.profile', compact('user'));
   }
 
   public function edit(Request $request)

@@ -22,8 +22,9 @@ Route::get('/posts/{id}', 'PostController@show');
 Route::patch('/posts/{id}', 'PostController@update');
 Route::post('/posts/{id}', 'PostController@destroy')->name('delete');
 
-Route::get('/users/index', 'UserController@index');
+Route::get('/users/profile', 'UserController@profile');
 Route::get('/users/edit', 'UserController@edit');
+Route::get('/users/{id}', 'UserController@index');
 Route::patch('/users/{id}', 'UserController@update');
 
 Route::post('/comments/store', 'CommentController@store');
