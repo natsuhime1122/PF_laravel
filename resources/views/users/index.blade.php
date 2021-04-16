@@ -6,9 +6,9 @@
     <h1>{{ $user->name }}</h1>
     <div class="btn-group float-right">
       @if( $user->id === $auth_id)
-        <form action="{{ action('UserController@profile', $user->id) }}" method="GET">
+        <form action="{{ action('UserController@edit', $user->id) }}" method="GET">
           @csrf
-          <button type="submit" class="btn btn-primary">プロフィールを表示</button>
+          <button type="submit" class="btn btn-primary">ユーザー名を編集</button>
         </form>
       @endif
     </div>
