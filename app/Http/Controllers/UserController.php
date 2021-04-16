@@ -46,6 +46,6 @@ class UserController extends Controller
     $this->validate($request, $rules);
     $user->name = $request->user_name;
     $user->save();
-    return redirect('/users/index');
+    return redirect()->action('UserController@index', ['id' => $request->user_id]);
   }
 }
